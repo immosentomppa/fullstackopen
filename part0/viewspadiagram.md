@@ -18,14 +18,14 @@ sequenceDiagram
     server-->>browser: 304 the JavaScript file
     deactivate server
 
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server. Also, the script creates an unorganized list of the notes and prepares the possibility to post new notes.
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server.
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
     server-->>browser: 200 the JSON file containing the notes
     deactivate server
 
-    Note right of browser: The browser executes the callback function that renders the notes
+    Note right of browser: The browser executes the callback function that renders the notes, and also gets ready to send new posted notes.
     
     browser->>server: GET https://studies.cs.helsinki.fi/favicon.ico
     activate server
