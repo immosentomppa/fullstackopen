@@ -32,7 +32,7 @@ sequenceDiagram
     server-->>browser: 200 HTML document
     deactivate server
     
-    Note right of browser: The form is submitted with content 'testnote2'.<br/> The browser adds the note to the visible ones and redraws then without refreshing the page.
+    Note right of browser: The form is submitted with content 'testnote2'.<br/> The browser adds the note to the visible ones and redraws the list without refreshing the page.
     
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     activate server
