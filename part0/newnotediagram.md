@@ -5,8 +5,8 @@ sequenceDiagram
     participant server
     
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    Note right of browser: Payload: note=testnote
     activate server
+    Note over browser: Payload: note=testnote
     server-->>browser: 302
     deactivate server
 
