@@ -25,7 +25,7 @@ sequenceDiagram
     server-->>browser: 200 the JSON file containing the notes
     deactivate server
 
-    Note right of browser: The browser executes the callback function that renders the notes, and starts to listen form submit in case of new posted notes.
+    Note right of browser: The browser executes the callback function that renders the notes,<br/>and starts to listen form submit in case of new posted notes.
     
     browser->>server: GET https://studies.cs.helsinki.fi/favicon.ico
     activate server
