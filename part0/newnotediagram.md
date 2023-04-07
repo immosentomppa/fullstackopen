@@ -6,7 +6,7 @@ sequenceDiagram
     
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
-    Note over browser: Payload: note=testnote
+    Note right of browser: Payload: note=testnote
     server-->>browser: 302
     deactivate server
 
