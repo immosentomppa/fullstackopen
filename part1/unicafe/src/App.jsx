@@ -23,6 +23,15 @@ const StatisticLine = ({ text, value, showPercentage }) => {
 
 
 const Statistics = ({ good, neutral, bad }) => {
+  const total = good + neutral + bad
+  if (total === 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </div>
+    )
+  }
   return (
     <>
     <table>
