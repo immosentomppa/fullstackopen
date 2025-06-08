@@ -22,7 +22,7 @@ const Votes = ({ amount }) => (
 )
 
 const App = () => {
-  // 1.12 - 1.16
+  // 1.12 - 1.14
   const anecdotes = [
     'If it hurts, do it more often.',
     'Adding manpower to a late software project makes it later!',
