@@ -100,11 +100,26 @@ const App = () => {
       personsService
         .deletePerson(id)
         .then(() => {
-          setPersons(persons.filter(person => person.id !== id))
+          setNotificationMessage(
+            `Information of ${persons.find(person => person.id === id).name} successfully deleted`
+          )
+          setNotificationType('success')
+          setTimeout(() => {
+            setNotificationMessage(null)
+            setNotificationType(null)
+          }, 5000)
+          personsService.getAll().then(freshPersons => setPersons(freshPersons))
         })
         .catch(error => {
-          alert(`Information of ${persons.find(person => person.id === id).name} has already been removed from server`)
-          setPersons(persons.filter(person => person.id !== id))
+          setNotificationMessage(
+            `Information of ${persons.find(person => person.id === id).name} has already been removed from server`
+          )
+          setNotificationType('error')
+          setTimeout(() => {
+            setNotificationMessage(null)
+            setNotificationType(null)
+          }, 5000)
+          personsService.getAll().then(freshPersons => setPersons(freshPersons))
         })
     }
   }
