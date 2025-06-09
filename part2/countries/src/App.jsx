@@ -37,11 +37,15 @@ function App() {
         .then(weatherResponse => {
           setWeatherData(weatherResponse)
         })
+        .catch(error => {
+          console.error('Error fetching weather data:', error)
+          setWeatherData(null)
+        })
     } else {
       apiService
         .getAll()
         .then(countriesResponse => {
-          const matchingCountries = countriesResponse.filter(country => country.name.common.toLowerCase().includes(event.target.value))
+          const matchingCountries = countriesResponse.filter(country => country.name.common.toLowerCase().includes(countrySearch))
           setCountriesToShow(matchingCountries)
           setWeatherData(null)
         })
