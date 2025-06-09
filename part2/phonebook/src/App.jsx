@@ -9,6 +9,8 @@ import './index.css'
 
 
 const App = () => {
+
+  // 2.6 - 2.17
   const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')

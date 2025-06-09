@@ -2,7 +2,7 @@ import Course from "./components/Course"
 
 const App = () => {
 
-  // 2.1 -
+  // 2.1 - 2.5
   const courses = [
     {
       name: 'Half Stack application development',
