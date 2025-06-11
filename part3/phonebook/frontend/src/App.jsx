@@ -35,8 +35,6 @@ const App = () => {
     }
     const existingPerson = persons.find(person => person.name.toLowerCase() === newName.toLowerCase())
     if (existingPerson) {
-      alert(`${newName} is already added to the phonebook.`)
-      /*
       if (window.confirm(`${newName} is already added to the phonebook, replace the old number with a new one?`)) {
         personsService
           .update(existingPerson.id, personObject)
@@ -56,10 +54,8 @@ const App = () => {
           })
           .catch(error => {
             personsService.getAll().then(freshPersons => setPersons(freshPersons))
-            setNewNumber('')
-            setNewName('')
             setNotificationMessage(
-              `Information of ${newName} has already been removed from server`
+              `${error.response.data.error}`
             )
             setNotificationType('error')
             setTimeout(() => {
@@ -67,22 +63,32 @@ const App = () => {
               setNotificationType(null)
             }, 5000)
           })
-      }*/
+      }
     } else {
       personsService
         .create(personObject)
-          .then(response => {
-            personsService.getAll().then(freshPersons => setPersons(freshPersons))
-            setNewNumber('')
-            setNewName('')
-            setNotificationMessage(
-              `Added ${newName}`
-            )
-            setNotificationType('success')
-            setTimeout(() => {
-              setNotificationMessage(null)
-              setNotificationType(null)
-            }, 5000)
+        .then(response => {
+          personsService.getAll().then(freshPersons => setPersons(freshPersons))
+          setNewNumber('')
+          setNewName('')
+          setNotificationMessage(
+            `Added ${newName}`
+          )
+          setNotificationType('success')
+          setTimeout(() => {
+            setNotificationMessage(null)
+            setNotificationType(null)
+          }, 5000)
+        })
+        .catch(error => {
+          setNotificationMessage(
+            `${error.response.data.error}`
+          )
+          setNotificationType('error')
+          setTimeout(() => {
+            setNotificationMessage(null)
+            setNotificationType(null)
+          }, 5000)
         })
     }
   }
