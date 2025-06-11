@@ -40,7 +40,7 @@ app.get('/api/notes/:id', (request, response, next) => {
   .catch(error => next(error))
 })
 
-app.delete('/api/notes/:id', (request, response) => {
+app.delete('/api/notes/:id', (request, response, next) => {
   Note.findByIdAndDelete(request.params.id)
     .then(result => {
       response.status(204).end()
@@ -48,7 +48,7 @@ app.delete('/api/notes/:id', (request, response) => {
     .catch(error => next(error))
 })
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/notes', (request, response, next) => {
   const body = request.body
 
   if (!body.content) {
