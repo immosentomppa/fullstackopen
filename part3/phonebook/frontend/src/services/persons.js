@@ -5,9 +5,9 @@ const getAll = () => {
     const request = axios.get(baseUrl)
     return request
     .then(response => response.data)
-    .catch(error => {
+    .catch(
         console.log('fail')
-    })
+    )
 }
 
 const create = newObject => {
