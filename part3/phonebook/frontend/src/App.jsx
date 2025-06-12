@@ -23,6 +23,16 @@ const App = () => {
       .then(initialPersons => {
         setPersons(initialPersons)
       })
+      .catch(error => {
+        setNotificationMessage(
+          `Error fetching initial data: ${error.response.data.error}`
+        )
+        setNotificationType('error')
+        setTimeout(() => {
+          setNotificationMessage(null)
+          setNotificationType(null)
+        }, 5000)
+      })
   }, [])
 
 
