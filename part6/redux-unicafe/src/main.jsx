@@ -6,6 +6,8 @@ import reducer from './reducer'
 
 const store = createStore(reducer)
 
+
+// 6.1. - 6.2
 const App = () => {
   const updateFeedback = (feedbackType) => {
     switch (feedbackType) {

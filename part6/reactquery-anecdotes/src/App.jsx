@@ -5,6 +5,7 @@ import { getAnecdotes, voteAnecdote } from './requests'
 import NotificationContext from './NotificationContext';
 import { useContext } from 'react'
 
+// 6.20 - 6.24
 const App = () => {
   const [notification, notificationDispatch] = useContext(NotificationContext)
   const queryClient = useQueryClient()
